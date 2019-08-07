@@ -1,14 +1,16 @@
 {
   "name": "ts-collections",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "ts-node node_modules/tape-watch/bin/tape-watch src/**/*.ts",
-    "build": "tsc"
+    "test": "ts-node node_modules/tape-watch/bin/tape-watch src/**/*.ts"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Anthony Shuker <anthony@emobe.uk>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Emobe/ts-collections.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "rxjs": "^6.5.2"
   },
