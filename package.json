@@ -1,10 +1,16 @@
 {
   "name": "ts-collections",
   "version": "0.0.1",
-  "description": "",
+  "description": "A package containing TypeScript collections",
   "scripts": {
     "test": "ts-node node_modules/tape-watch/bin/tape-watch src/**/*.ts"
   },
+  "keywords": [
+    "typescript",
+    "collection",
+    "list",
+    "dictionary"
+  ],
   "author": "Anthony Shuker <anthony@emobe.uk>",
   "repository": {
     "type": "git",
