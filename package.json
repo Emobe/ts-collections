@@ -1,5 +1,5 @@
 {
-  "name": "ts-collections",
+  "name": "@emobe/ts-collections",
   "version": "0.0.1",
   "description": "A package containing TypeScript collections",
   "scripts": {
