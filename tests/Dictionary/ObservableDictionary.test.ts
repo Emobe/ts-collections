@@ -1,17 +1,17 @@
 import test from "tape";
-import { Dictionary } from "./Dictionary";
-import { KeyPair } from "./DictionaryCollection";
+import { KeyPair } from "../../src/models/DictionaryCollection";
+import { ObservableDictionary } from "../../src/Dictionary/ObservableDictionary";
 
 test("Dictionary constructor should initialise with items added", t => {
   const expected = { test: 3 };
-  const dictionary = new Dictionary<number>(expected);
+  const dictionary = new ObservableDictionary<number>(expected);
   const actual = dictionary.Items;
   t.deepEqual(actual, expected);
   t.end();
 });
 
 test("Dictionary.add(key, item) should add item to dictionary", t => {
-  const dictionary = new Dictionary<number>();
+  const dictionary = new ObservableDictionary<number>();
   dictionary.add("hello", 2);
   const expected = { hello: 2 };
   const actual = dictionary.Items;
@@ -25,7 +25,7 @@ test("Dictionary.remove(1) should remove item", t => {
     { testing: 102 },
     { tested: 210934021930 }
   ];
-  const dictionary = new Dictionary<number>(...initial);
+  const dictionary = new ObservableDictionary<number>(...initial);
   dictionary.remove("testing");
   const expected = {
     test: 2,
@@ -41,7 +41,7 @@ test("Dictionary.containsKey(key) should return true or false depending on if ke
     test: 2,
     testing: 3
   };
-  const dictionary = new Dictionary<number>(initial);
+  const dictionary = new ObservableDictionary<number>(initial);
   let actual = dictionary.containsKey("test");
   let expected = true;
   t.deepEqual(actual, expected, "Should return true because 'test' exists");
@@ -60,7 +60,7 @@ test("Dictionary.containsKey(key) should return true or false depending on if ke
     test: 2,
     testing: 3
   };
-  const dictionary = new Dictionary<number>(initial);
+  const dictionary = new ObservableDictionary<number>(initial);
   let actual = dictionary.containsValue(2);
   let expected = true;
   t.deepEqual(actual, expected, "Should return true because 'test' exists");

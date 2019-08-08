@@ -1,5 +1,5 @@
 import test from "tape";
-import { ObservableList } from "./ObservableList";
+import { ObservableList } from "../../src/List/ObservableList";
 
 //TODO test subscribe
 

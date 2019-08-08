@@ -1,17 +1,26 @@
-import { Collection } from "./Collection";
-import { DictionaryCollection, KeyPair } from "./DictionaryCollection";
+import { Collection } from "../models/Collection";
+import { DictionaryCollection, KeyPair } from "../models/DictionaryCollection";
+import { ObservableDictionaryCollection } from "../models/ObservableDictionaryCollection";
+import { Observable, BehaviorSubject, merge } from "rxjs";
 
-export class Dictionary<V> implements DictionaryCollection<V> {
-  private items: KeyPair<V> = {};
+export class ObservableDictionary<V>
+  implements ObservableDictionaryCollection<V> {
+  items$: Observable<KeyPair<V>>;
+  private items: BehaviorSubject<KeyPair<V>>;
   constructor(...items: KeyPair<V>[]) {
+    let initial;
     if (items) {
-      Object.assign(this.items, ...items);
+      initial = Object.assign({}, ...items);
+    } else {
+      initial = null;
     }
+    this.items = new BehaviorSubject<KeyPair<V>>(initial);
+    this.items$ = this.items.asObservable();
   }
   add(item: KeyPair<V>): void;
   add(key: string, value: V): boolean;
   add(key: any, value?: any) {
-    if (this.items[key]) {
+    if (this.items.value[key]) {
       return false;
     }
     this.update({ [key]: value });
@@ -30,7 +39,7 @@ export class Dictionary<V> implements DictionaryCollection<V> {
   }
   containsValue(value: V): boolean {
     for (const v of Object.keys(this.items)) {
-      if (this.items[v] === value) {
+      if (this.items.value[v] === value) {
         return true;
       }
     }
@@ -39,8 +48,8 @@ export class Dictionary<V> implements DictionaryCollection<V> {
   remove(key: string): boolean;
   remove(index: number): void;
   remove(key: any) {
-    if (this.items[key]) {
-      delete this.items[key];
+    if (this.items.value[key]) {
+      delete this.items.value[key];
       return true;
     }
     return false;

@@ -1,4 +1,4 @@
-import { Collection } from "./Collection";
+import { Collection } from "../models/Collection";
 
 export class List<T> implements Collection<T> {
   private items: T[] = [];

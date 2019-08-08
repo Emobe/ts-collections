@@ -1,4 +1,4 @@
-import { ObservableCollection } from "./ObservableCollection";
+import { ObservableCollection } from "../models/ObservableCollection";
 import { Observable, BehaviorSubject } from "rxjs";
 
 export class ObservableList<T> implements ObservableCollection<T> {
