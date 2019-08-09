@@ -30,7 +30,7 @@ export class ObservableDictionary<V>
     this.update({});
   }
   containsKey(key: string): boolean {
-    for (const k in this.items) {
+    for (const k in this.items.value) {
       if (k === key) {
         return true;
       }
@@ -38,7 +38,7 @@ export class ObservableDictionary<V>
     return false;
   }
   containsValue(value: V): boolean {
-    for (const v of Object.keys(this.items)) {
+    for (const v of Object.keys(this.items.value)) {
       if (this.items.value[v] === value) {
         return true;
       }
@@ -54,14 +54,15 @@ export class ObservableDictionary<V>
     }
     return false;
   }
-  public get Items() {
-    return this.items;
-  }
   contains(item: KeyPair<V>): boolean {
     throw new Error("Method not implemented.");
   }
 
+  get Items(): KeyPair<V> {
+    return this.items.value;
+  }
+
   private update(value: KeyPair<V>) {
-    Object.assign(this.items, value);
+    this.items.next(Object.assign(this.items.value, value));
   }
 }

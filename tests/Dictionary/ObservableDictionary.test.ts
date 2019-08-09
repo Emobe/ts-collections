@@ -2,7 +2,7 @@ import test from "tape";
 import { KeyPair } from "../../src/models/DictionaryCollection";
 import { ObservableDictionary } from "../../src/Dictionary/ObservableDictionary";
 
-test("Dictionary constructor should initialise with items added", t => {
+test("ObservableDictionary constructor should initialise with items added", t => {
   const expected = { test: 3 };
   const dictionary = new ObservableDictionary<number>(expected);
   const actual = dictionary.Items;
@@ -10,16 +10,17 @@ test("Dictionary constructor should initialise with items added", t => {
   t.end();
 });
 
-test("Dictionary.add(key, item) should add item to dictionary", t => {
+test("ObservableDictionary.add(key, item) should add item to dictionary", async t => {
   const dictionary = new ObservableDictionary<number>();
+  let actual;
+  dictionary.items$.subscribe(val => (actual = val));
   dictionary.add("hello", 2);
   const expected = { hello: 2 };
-  const actual = dictionary.Items;
   t.deepEqual(actual, expected);
   t.end();
 });
 
-test("Dictionary.remove(1) should remove item", t => {
+test("ObservableDictionary.remove(1) should remove item", t => {
   const initial: KeyPair<number>[] = [
     { test: 2 },
     { testing: 102 },
@@ -36,7 +37,7 @@ test("Dictionary.remove(1) should remove item", t => {
   t.end();
 });
 
-test("Dictionary.containsKey(key) should return true or false depending on if key exists", t => {
+test("ObservableDictionary.containsKey(key) should return true or false depending on if key exists", t => {
   const initial = {
     test: 2,
     testing: 3
@@ -55,7 +56,7 @@ test("Dictionary.containsKey(key) should return true or false depending on if ke
   t.end();
 });
 
-test("Dictionary.containsKey(key) should return true or false depending on if key exists", t => {
+test("ObservableDictionary.containsKey(key) should return true or false depending on if key exists", t => {
   const initial = {
     test: 2,
     testing: 3
@@ -75,7 +76,7 @@ test("Dictionary.containsKey(key) should return true or false depending on if ke
 });
 
 //
-//test("Dictionary.contains(item) should return true if item is in the dictionary", t => {
+//test("ObservableDictionary.contains(item) should return true if item is in the dictionary", t => {
 //  const numberDictionary = new Dictionary<number>([1, 2, 3]);
 //  let actual = numberDictionary.contains(2);
 //  const expected = true;
