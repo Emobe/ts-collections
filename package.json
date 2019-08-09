@@ -1,6 +1,6 @@
 {
   "name": "@emobe/ts-collections",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A package containing TypeScript collections",
   "scripts": {
     "test": "nyc ts-node node_modules/tape/bin/tape ./tests/**/*.ts",
