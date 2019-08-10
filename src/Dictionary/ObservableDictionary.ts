@@ -29,6 +29,9 @@ export class ObservableDictionary<V>
   clear(): void {
     this.update({});
   }
+  get(key: string) {
+    return this.Items[key];
+  }
   containsKey(key: string): boolean {
     for (const k in this.items.value) {
       if (k === key) {

@@ -23,6 +23,9 @@ class ObservableDictionary {
     clear() {
         this.update({});
     }
+    get(key) {
+        return this.Items[key];
+    }
     containsKey(key) {
         for (const k in this.items.value) {
             if (k === key) {

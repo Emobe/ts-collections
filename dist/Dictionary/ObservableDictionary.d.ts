@@ -8,6 +8,7 @@ export declare class ObservableDictionary<V> implements ObservableDictionaryColl
     add(item: KeyPair<V>): void;
     add(key: string, value: V): boolean;
     clear(): void;
+    get(key: string): V;
     containsKey(key: string): boolean;
     containsValue(value: V): boolean;
     remove(key: string): boolean;

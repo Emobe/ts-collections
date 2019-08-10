@@ -1,6 +1,6 @@
 {
   "name": "@emobe/ts-collections",
-  "version": "0.0.4",
+  "version": "0.0.41",
   "description": "A package containing TypeScript collections",
   "scripts": {
     "build": "tsc",
