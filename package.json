@@ -8,6 +8,7 @@
     "test:coverage": "ts-node node_modules/tape/bin/tape ./tests/**/*.ts",
     "test:watch": "ts-node node_modules/tape-watch/bin/tape-watch ./tests/**/*.ts "
   },
+  "main": "dist/index.js",
   "keywords": [
     "typescript",
     "collection",
