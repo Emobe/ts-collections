@@ -33,6 +33,9 @@ class ObservableList {
     get asArray() {
         return this.items.value;
     }
+    get Items() {
+        return this.items.value;
+    }
 }
 exports.ObservableList = ObservableList;
 //# sourceMappingURL=ObservableList.js.map

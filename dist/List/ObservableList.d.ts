@@ -10,4 +10,5 @@ export declare class ObservableList<T> implements ObservableCollection<T> {
     remove(index: number): void;
     private update;
     readonly asArray: T[];
+    readonly Items: T[];
 }

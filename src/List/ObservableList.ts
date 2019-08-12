@@ -35,4 +35,7 @@ export class ObservableList<T> implements ObservableCollection<T> {
   public get asArray() {
     return this.items.value;
   }
+  public get Items() {
+    return this.items.value;
+  }
 }
