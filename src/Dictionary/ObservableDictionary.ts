@@ -1,7 +1,8 @@
 import { Collection } from "../models/Collection";
-import { DictionaryCollection, KeyPair } from "../models/DictionaryCollection";
+import { DictionaryCollection } from "../models/DictionaryCollection";
 import { ObservableDictionaryCollection } from "../models/ObservableDictionaryCollection";
 import { Observable, BehaviorSubject, merge } from "rxjs";
+import { KeyPair } from "../models/KeyPair";
 
 export class ObservableDictionary<V>
   implements ObservableDictionaryCollection<V> {

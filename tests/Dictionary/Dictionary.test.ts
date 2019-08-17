@@ -1,6 +1,6 @@
 import test from "tape";
 import { Dictionary } from "../../src/Dictionary/Dictionary";
-import { KeyPair } from "../../src/models/DictionaryCollection";
+import { KeyPair } from "../../src/models/KeyPair";
 
 test("Dictionary constructor should initialise with items added", t => {
   const expected = { test: 3 };

@@ -1,6 +1,6 @@
 import test from "tape";
-import { KeyPair } from "../../src/models/DictionaryCollection";
 import { ObservableDictionary } from "../../src/Dictionary/ObservableDictionary";
+import { KeyPair } from "../../src/models/KeyPair";
 
 test("ObservableDictionary constructor should initialise with items added", t => {
   const expected = { test: 3 };

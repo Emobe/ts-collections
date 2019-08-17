@@ -1,5 +1,6 @@
-import { DictionaryCollection, KeyPair } from "./DictionaryCollection";
+import { DictionaryCollection } from "./DictionaryCollection";
 import { Observable } from "rxjs";
+import { KeyPair } from "./KeyPair";
 
 export interface ObservableDictionaryCollection<V>
   extends DictionaryCollection<V> {

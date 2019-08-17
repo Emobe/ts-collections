@@ -1,4 +1,5 @@
-import { DictionaryCollection, KeyPair } from "../models/DictionaryCollection";
+import { DictionaryCollection } from "../models/DictionaryCollection";
+import { KeyPair } from "../models/KeyPair";
 export declare class Dictionary<V> implements DictionaryCollection<V> {
     private items;
     constructor(...items: KeyPair<V>[]);

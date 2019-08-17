@@ -1,5 +1,6 @@
 import { Collection } from "../models/Collection";
-import { DictionaryCollection, KeyPair } from "../models/DictionaryCollection";
+import { DictionaryCollection } from "../models/DictionaryCollection";
+import { KeyPair } from "../models/KeyPair";
 
 export class Dictionary<V> implements DictionaryCollection<V> {
   private items: KeyPair<V> = {};

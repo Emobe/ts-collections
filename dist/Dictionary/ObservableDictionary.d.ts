@@ -1,6 +1,6 @@
-import { KeyPair } from "../models/DictionaryCollection";
 import { ObservableDictionaryCollection } from "../models/ObservableDictionaryCollection";
 import { Observable } from "rxjs";
+import { KeyPair } from "../models/KeyPair";
 export declare class ObservableDictionary<V> implements ObservableDictionaryCollection<V> {
     items$: Observable<KeyPair<V>>;
     private items;
