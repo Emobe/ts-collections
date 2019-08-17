@@ -1,5 +1,5 @@
 import { Collection } from "./Collection";
-import { KeyPair } from "./KeyPair";
+import { KeyPair } from "./";
 
 export interface DictionaryCollection<V> extends Collection<KeyPair<V>> {
   add(item: KeyPair<V>): void;
