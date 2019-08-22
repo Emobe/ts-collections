@@ -1,3 +1,5 @@
+export * from "./ObservableList";
 export * from "./Dictionary";
+export * from "./ObservableDictionary";
 export * from "./List";
-export * from "./models";
+export { KeyPair } from "./KeyPair";
