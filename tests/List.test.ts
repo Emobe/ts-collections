@@ -19,10 +19,19 @@ test("List.add(item) should add item to list", t => {
   t.end();
 });
 
-test("List.remove(1) should remove item from second index", t => {
-  const list = new List<string>(["first", "second", "third"]);
-  list.remove(1);
-  const expected = ["first", "third"];
+test("List.insert(index, item) should insert item at index", t => {
+  const list = new List<number>([1, 2, 3, 2, 4]);
+  list.insert(2, 100);
+  const expected = [1, 2, 100, 3, 2, 4];
+  const actual = list.Items;
+  t.deepEqual(actual, expected);
+  t.end();
+});
+
+test("List.remove(item) should remove first occurance of item", t => {
+  const list = new List<number>([1, 2, 3, 2, 4]);
+  list.remove(2);
+  const expected = [1, 3, 2, 4];
   const actual = list.Items;
   t.deepEqual(actual, expected);
   t.end();
@@ -57,6 +66,17 @@ test("List.clear() should empty list of items", t => {
   list.clear();
   const actual = list.Items;
   const expected: any[] = [];
+  t.deepEqual(actual, expected);
+  t.end();
+});
+
+test("List should be iterable", t => {
+  const list = new List<number>([1, 2, 3, 4]);
+  const expected = [1, 2, 3, 4];
+  const actual = [];
+  for (const i of list) {
+    actual.push(i);
+  }
   t.deepEqual(actual, expected);
   t.end();
 });

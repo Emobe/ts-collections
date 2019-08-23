@@ -58,8 +58,8 @@ export declare class Dictionary<V> {
     readonly Items: KeyPair<V>;
     contains(item: KeyPair<V>): boolean;
     /**
-     *
-     * @param value updates dictionary
+     * Updates the dictionary by merging objects
+     * @param value The value to merge with dictionary
      */
     private update;
 }

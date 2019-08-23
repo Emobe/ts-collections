@@ -74,8 +74,8 @@ class Dictionary {
         throw new Error("Method not implemented.");
     }
     /**
-     *
-     * @param value updates dictionary
+     * Updates the dictionary by merging objects
+     * @param value The value to merge with dictionary
      */
     update(value) {
         Object.assign(this.items, value);
