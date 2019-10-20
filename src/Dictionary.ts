@@ -1,13 +1,15 @@
 import { Collection } from "./Collection";
+import { EventEmitter } from "events";
 
-export class Dictionary<K, V> {
+export class Dictionary<K, V> extends EventEmitter {
   private items = new Map<K, V>();
   /**
    * @param items Items to add to the dictionary
    */
-  constructor(items?: Map<K, V>) {
+  constructor(items?: [K, V][]) {
+    super();
     if (items) {
-      Object.assign(this.items, items);
+      this.items = new Map(items);
     }
   }
   /**
@@ -20,6 +22,8 @@ export class Dictionary<K, V> {
     if (this.items.get(key)) {
       throw new Error(`Key: ${key} already exists on the dictionary`);
     }
+    this.items.set(key, value);
+    this.emit("add", value, key);
     return true;
   }
   /**
@@ -63,7 +67,11 @@ export class Dictionary<K, V> {
    * @returns `true` if the element existed and was removed, otherwise `false` is returned
    */
   remove(key: K): boolean {
-    return this.items.delete(key);
+    if (this.items.delete(key)) {
+      this.emit("remove");
+      return true;
+    }
+    return false;
   }
   /**
    * Returns the length of the data stored
@@ -81,13 +89,6 @@ export class Dictionary<K, V> {
     throw new Error("Method not implemented.");
   }
 
-  /**
-   * Updates the dictionary by merging objects
-   * @param value The value to merge with dictionary
-   */
-  private update(value: Map<K, V>) {
-    Object.assign(this.items, value);
-  }
   [Symbol.iterator]() {
     return this.items;
   }

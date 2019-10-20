@@ -1,10 +1,7 @@
 "use strict";
-function __export(m) {
-    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-}
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(require("./ObservableList"));
-__export(require("./Dictionary"));
-__export(require("./ObservableDictionary"));
-__export(require("./List"));
+var Dictionary_1 = require("./Dictionary");
+exports.Dictionary = Dictionary_1.default;
+var List_1 = require("./List");
+exports.List = List_1.default;
 //# sourceMappingURL=index.js.map

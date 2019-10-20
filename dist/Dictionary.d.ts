@@ -1,23 +1,18 @@
-import { KeyPair } from "./KeyPair";
-export declare class Dictionary<V> {
+/// <reference types="node" />
+import { EventEmitter } from "events";
+export declare class Dictionary<K, V> extends EventEmitter {
     private items;
     /**
      * @param items Items to add to the dictionary
      */
-    constructor(items?: KeyPair<V>);
-    /**
-     * Adds item to the dictionary
-     * @param item The item to add to the dictionary
-     * @returns `true` if item was added to the dictionary, otherwise returns `false`
-     */
-    add(item: KeyPair<V>): boolean;
+    constructor(items?: [K, V][]);
     /**
      * Adds item to the dictionary
      * @param key The key which will be used to access the item
      * @param value The item to add to the dictionary
      * @returns `true` if item was added to the dictionary, otherwise throws an `Error` if key already exists
      */
-    add(key: string, value: V): boolean;
+    add(key: K, value: V): boolean;
     /**
      * Clears the dictionary
      */
@@ -27,13 +22,13 @@ export declare class Dictionary<V> {
      * @param key The key of the item to return from the dictionary
      * @return Returns item if exists at the specified key, otherwise `undefined`
      */
-    get(key: string): V;
+    get(key: K): V;
     /**
      * Check if the dictionary contains key
      * @param key The key to check if element exists at
      * @return `true` if a value is associated with specified key in the dictionary, otherwise returns `false`
      */
-    containsKey(key: string): boolean;
+    containsKey(key: K): boolean;
     /**
      * Check if the dictionary contains key
      * @param value The value to check if exists in the dictionary
@@ -45,21 +40,15 @@ export declare class Dictionary<V> {
      * @param key The key of the element to remove from the dictionary
      * @returns `true` if the element existed and was removed, otherwise `false` is returned
      */
-    remove(key: string): boolean;
+    remove(key: K): boolean;
     /**
-     * Remove element from the dictionary
-     * @param index The index of the element to remove from the dictionary. Not reccomended as element order cannot be guaranteed.
-     * @returns `true` if the element existed and was removed, otherwise `false` is returned
+     * Returns the length of the data stored
      */
-    remove(index: number): boolean;
+    count(): number;
     /**
      *
      */
-    readonly Items: KeyPair<V>;
-    contains(item: KeyPair<V>): boolean;
-    /**
-     * Updates the dictionary by merging objects
-     * @param value The value to merge with dictionary
-     */
-    private update;
+    readonly Items: Map<K, V>;
+    contains(item: Map<K, V>): boolean;
+    [Symbol.iterator](): Map<K, V>;
 }

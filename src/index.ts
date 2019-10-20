@@ -1,5 +1,3 @@
-export * from "./ObservableList";
-export * from "./Dictionary";
-export * from "./ObservableDictionary";
-export * from "./List";
+export { default as Dictionary } from "./Dictionary";
+export { default as List } from "./List";
 export { KeyPair } from "./KeyPair";
