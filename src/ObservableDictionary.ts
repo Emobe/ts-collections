@@ -1,4 +1,4 @@
-import { Dictionary } from ".";
+import Dictionary from "./Dictionary";
 import { BehaviorSubject } from "rxjs";
 import { skip } from "rxjs/operators";
 

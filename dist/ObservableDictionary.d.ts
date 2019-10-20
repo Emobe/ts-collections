@@ -1,4 +1,4 @@
-import { Dictionary } from ".";
+import Dictionary from "./Dictionary";
 export default class ObservableDictionary<K, V> extends Dictionary<K, V> {
     private subject;
     items$: import("rxjs").Observable<Map<K, V>>;
