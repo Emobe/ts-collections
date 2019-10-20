@@ -1,7 +1,7 @@
 import { Collection } from "./Collection";
 import { EventEmitter } from "events";
 
-export class Dictionary<K, V> extends EventEmitter {
+export default class Dictionary<K, V> extends EventEmitter {
   private items = new Map<K, V>();
   /**
    * @param items Items to add to the dictionary
@@ -12,6 +12,7 @@ export class Dictionary<K, V> extends EventEmitter {
       this.items = new Map(items);
     }
   }
+
   /**
    * Adds item to the dictionary
    * @param key The key which will be used to access the item

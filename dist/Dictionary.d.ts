@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { EventEmitter } from "events";
-export declare class Dictionary<K, V> extends EventEmitter {
+export default class Dictionary<K, V> extends EventEmitter {
     private items;
     /**
      * @param items Items to add to the dictionary

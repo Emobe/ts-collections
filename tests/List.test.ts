@@ -1,5 +1,5 @@
 import test from "tape";
-import { List } from "../src/List";
+import List from "../src/List";
 
 test("List constructor should initialise with items added", t => {
   const list = new List<string>(["hello", "there", "tape"]);

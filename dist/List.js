@@ -71,5 +71,5 @@ class List {
         return this.items.values();
     }
 }
-exports.List = List;
+exports.default = List;
 //# sourceMappingURL=List.js.map

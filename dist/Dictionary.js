@@ -92,5 +92,5 @@ class Dictionary extends events_1.EventEmitter {
         return this.items;
     }
 }
-exports.Dictionary = Dictionary;
+exports.default = Dictionary;
 //# sourceMappingURL=Dictionary.js.map

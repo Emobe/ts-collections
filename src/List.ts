@@ -1,6 +1,6 @@
 import { onErrorResumeNext } from "rxjs";
 
-export class List<V> {
+export default class List<V> {
   private items: V[] = [];
   /**
    * @param items - Items to set initial data

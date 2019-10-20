@@ -1,4 +1,4 @@
-export declare class List<V> {
+export default class List<V> {
     private items;
     /**
      * @param items - Items to set initial data

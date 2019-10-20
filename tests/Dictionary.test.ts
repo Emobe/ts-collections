@@ -1,5 +1,5 @@
 import test from "tape";
-import { Dictionary } from "../src/Dictionary";
+import Dictionary from "../src/Dictionary";
 import { KeyPair } from "../src/KeyPair";
 
 test("Dictionary constructor should initialise with items added", t => {
