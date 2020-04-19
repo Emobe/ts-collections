@@ -4,6 +4,7 @@ import { EventEmitter } from 'events';
 export default class Dictionary<K, V> extends EventEmitter {
   private items = new Map<K, V>();
   /**
+   * Constructs a dictionary
    * @param items Items to add to the dictionary
    */
   constructor(items?: [K, V][]) {
