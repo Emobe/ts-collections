@@ -1,4 +1,3 @@
-
 export default class List<V> {
   private items: V[] = [];
   /**

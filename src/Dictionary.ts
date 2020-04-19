@@ -1,5 +1,5 @@
-import { Collection } from "./Collection";
-import { EventEmitter } from "events";
+import { Collection } from './Collection';
+import { EventEmitter } from 'events';
 
 export default class Dictionary<K, V> extends EventEmitter {
   private items = new Map<K, V>();
@@ -24,7 +24,7 @@ export default class Dictionary<K, V> extends EventEmitter {
       throw new Error(`Key: ${key} already exists on the dictionary`);
     }
     this.items.set(key, value);
-    this.emit("add", value, key);
+    this.emit('add', value, key);
     return true;
   }
   /**
@@ -69,7 +69,7 @@ export default class Dictionary<K, V> extends EventEmitter {
    */
   remove(key: K): boolean {
     if (this.items.delete(key)) {
-      this.emit("remove");
+      this.emit('remove');
       return true;
     }
     return false;
@@ -87,7 +87,7 @@ export default class Dictionary<K, V> extends EventEmitter {
     return this.items;
   }
   contains(item: Map<K, V>): boolean {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 
   [Symbol.iterator]() {
